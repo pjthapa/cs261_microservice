@@ -1,16 +1,20 @@
 "use strict"
-import express from "express"
 
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json())
 
+
+
 app.post("/random_element", (req, res)=>{
-    postList = req.body.list
-    postLength = postList.length
-    return postList[between(0, postLength)]
+    let postList = req.body.list
+    let postLength = postList.length
+    let element = postList[between(0, postLength-1)]
+    console.log(postLength)
+    console.log(element)
+    res.send(element)
 })
 
 function between(min, max) {  
@@ -19,6 +23,6 @@ function between(min, max) {
     )
   }
 
-app.listen(PORt, ()=>{
+app.listen(PORT, ()=>{
     console.log(`Server listening on port: ${PORT}`)
 })

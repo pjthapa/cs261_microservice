@@ -1,0 +1,9 @@
+POST http://localhost:3000/random_element HTTP/1.1
+content-type: application/json
+
+{
+    "list": ["1","2", "3", "4"]
+}
+
+### Get request
+GET http://localhost:3000/random_element HTTP/1.1
