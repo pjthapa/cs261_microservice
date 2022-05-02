@@ -6,14 +6,15 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json())
 
-
+app.get("/random_element", (req, res)=>{
+  res.send("Hello World")
+})
 
 app.post("/random_element", (req, res)=>{
     let postList = req.body.list
     let postLength = postList.length
     let element = postList[between(0, postLength-1)]
-    console.log(postLength)
-    console.log(element)
+
     res.send(element)
 })
 
